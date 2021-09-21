@@ -75,7 +75,7 @@ class Database {
 		for ($i = 0; $i < $row = $ret->fetchArray(); $i++) {
 
 			if ($row['task_send_status'] == 1) {
-				file_get_contents("https://api.telegram.org/bot1779813664:AAGj9xjVfz1zzOgW9AlIhScqzctPAbcVLoE/sendMessage?chat_id=415746338&text=Название:\n" . $row['task_title'] . "\n Описание:\n" . $row['task_description']);
+				file_get_contents("https://api.telegram.org/bot[BOT_TOCKEN]&text=Название:\n" . $row['task_title'] . "\n Описание:\n" . $row['task_description']);
 				$this->db->exec("UPDATE ticket SET task_send_status = 0 WHERE task_send_status = 1");
 			}
 		}
